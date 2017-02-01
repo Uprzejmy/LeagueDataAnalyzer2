@@ -1,0 +1,28 @@
+﻿<Window x:Class="LeagueDataAnalyzer2.View.Match"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LeagueDataAnalyzer2.View"
+        xmlns:vm="clr-namespace:LeagueDataAnalyzer2.ViewModel" 
+        mc:Ignorable="d"
+        Title="Match" Height="300" Width="300" 
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:ViewModelMain/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.878*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="2">
+            <DataGrid x:Name="dg1" ItemsSource="{Binding People}" HorizontalAlignment="Left"/>
+            <TextBlock FontWeight="Bold" Margin="5" Text="The TestText property says '"><Run Text="{Binding TestText}"/><Run Text="'"/></TextBlock>
+            <Button Content="Change Text" Command="{Binding ChangeTextCommand}" CommandParameter="{Binding SelectedItem, ElementName=dg1}"/>
+        </StackPanel>
+        <Button Content="Next Example" Command="{Binding NextExampleCommand}" Foreground="Red" HorizontalAlignment="Right" FontWeight="Bold" Grid.Row="1" Margin="5"/>
+
+    </Grid>
+</Window>
