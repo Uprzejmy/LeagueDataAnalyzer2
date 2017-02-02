@@ -11,14 +11,15 @@ namespace LeagueDataAnalyzer2.ViewModel
 {
     class ViewModelBase : INotifyPropertyChanged
     {
-        //basic ViewModelBase
         internal void RaisePropertyChanged(string prop)
         {
-            if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            }
         }
         public event PropertyChangedEventHandler PropertyChanged;
-
-        //Extra Stuff, shows why a base ViewModel is useful
+        
         bool? _closeWindowFlag;
         public bool? CloseWindowFlag
         {
