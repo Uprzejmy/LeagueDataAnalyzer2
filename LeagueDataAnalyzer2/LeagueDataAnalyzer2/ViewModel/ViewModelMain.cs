@@ -39,6 +39,7 @@ namespace LeagueDataAnalyzer2.ViewModel
                 new Match { Id=12, MatchId=12347 },
             };
             TextProperty1 = "Type here";
+            // TextProperty1 = System.Configuration.ConfigurationManager.AppSettings.Get("riot_key"); // broken somehow
         }
     }
 }
