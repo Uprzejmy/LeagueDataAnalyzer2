@@ -41,11 +41,7 @@ namespace LeagueDataAnalyzer2.ViewModel
                 new Match { Id=12, MatchId=12347 },
             };
 
-            string riotKey = ConfigurationManager.AppSettings.Get("riot_key");
-            //TextProperty1 = ApiConnector.GetDataFromUrl("https://eune.api.pvp.net/api/lol/eune/v1.4/summoner/by-name/Uprzejmy?api_key=" + riotKey); // uprzejmy: 26885974
-            //TextProperty1 = RequestsRepository.GetPlayerByName("Uprzejmy"); // uprzejmy: 26885974
             TextProperty1 = RequestsRepository.GetMatchesByPlayerId("26885974");
-            //TextProperty1 = RequestsRepository.GetPlayerByName("Uprzejmy");
         }
     }
 }
