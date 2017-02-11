@@ -15,5 +15,10 @@ namespace LeagueDataAnalyzer2.DataProvider
         {
             return "https://eune.api.pvp.net/api/lol/eune/v1.4/summoner/by-name/" + name + riotKey;
         }
+
+        public static string GetMatchesByPlayerId(string id)
+        {
+            return "https://eune.api.pvp.net/api/lol/eune/v2.2/matchlist/by-summoner/" + id + riotKey;
+        }
     }
 }

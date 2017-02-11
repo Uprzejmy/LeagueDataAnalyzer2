@@ -11,7 +11,12 @@ namespace LeagueDataAnalyzer2.DataProvider
     {
         public static string GetPlayerByName(string name)
         {
-            return ApiConnector.GetDataFromUrl(UrlsRepository.GetPlayerByName("Uprzejmy"));
+            return ApiConnector.GetDataFromUrl(UrlsRepository.GetPlayerByName(name));
+        }
+
+        public static string GetMatchesByPlayerId(string id)
+        {
+            return ApiConnector.GetDataFromUrl(UrlsRepository.GetMatchesByPlayerId(id));
         }
     }
 }
