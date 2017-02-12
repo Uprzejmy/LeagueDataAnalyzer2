@@ -63,7 +63,10 @@
     <Compile Include="DataProvider\ApiConnector.cs" />
     <Compile Include="DataProvider\RequestsRepository.cs" />
     <Compile Include="DataProvider\UrlsRepository.cs" />
-    <Compile Include="Model\UrlBuilder.cs" />
+    <Compile Include="Model\Data.cs" />
+    <Compile Include="Model\Entity\Player.cs" />
+    <Compile Include="Model\IRequestsRepository.cs" />
+    <Compile Include="Model\RequestRepository.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelMain.cs" />
     <Compile Include="View\Match.xaml.cs">
