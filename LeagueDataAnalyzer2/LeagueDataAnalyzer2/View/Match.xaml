@@ -18,9 +18,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.RowSpan="2">
-            <DataGrid x:Name="dg1" ItemsSource="{Binding Matches}" HorizontalAlignment="Left" Height="102" Width="176"/>
-            <TextBlock FontWeight="Bold" Margin="5" Text="The TestText property says '"><Run Text="{Binding TextProperty1}"/><Run Text="'"/></TextBlock>
-            <Button Content="Change Text" Command="{Binding TextProperty1}" CommandParameter="{Binding TextProperty1, ElementName=dg1}"/>
+            <Label x:Name="PlayerData" Content="Label" RenderTransformOrigin="0.48,-6.24" Margin="10,0"/>
+            <DataGrid x:Name="MatchesData" ItemsSource="{Binding Matches}" HorizontalAlignment="Right" Height="115" Width="272" Margin="0,0,10,0" RenderTransformOrigin="0.499,0.684"/>
+            <TextBlock FontWeight="Bold" Margin="10,5" Text="The TestText property says '"><Run Text="{Binding TextProperty1}"/><Run Text="'"/></TextBlock>
+            <Button Content="Change Text" Command="{Binding TextProperty1}" CommandParameter="{Binding TextProperty1, ElementName=MatchesData}" Margin="10,0"/>
         </StackPanel>
         <Button Content="Next Example" Command="{Binding NextExampleCommand}" Foreground="Red" HorizontalAlignment="Right" FontWeight="Bold" Grid.Row="1" Margin="5"/>
 

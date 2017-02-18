@@ -41,7 +41,7 @@ namespace LeagueDataAnalyzer2.ViewModel
                 new Match { Id=12, MatchId=12347 },
             };
 
-            TextProperty1 = RequestsRepository.GetMatchesByPlayerId("26885974");
+            TextProperty1 = RequestsRepository.GetMatchesByPlayerIdFromLocal();
         }
     }
 }
