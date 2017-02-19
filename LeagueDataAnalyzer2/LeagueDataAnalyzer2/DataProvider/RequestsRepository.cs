@@ -41,7 +41,7 @@ namespace LeagueDataAnalyzer2.DataProvider
             string path = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApp‌​licationData), "LeagueDataAnalyzer2", "ExampleData.txt");
             string json = File.ReadAllText(path);
 
-            return Deserializer.MatchDeserializer.DeserializeMatch(json);
+            return Deserializer.MatchDeserializer.DeserializeMatch(json).Matches;
         }
     }
 }
