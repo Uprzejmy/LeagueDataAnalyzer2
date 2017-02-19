@@ -10,6 +10,7 @@ namespace LeagueDataAnalyzer2.Model
 {
     class DataHandler
     {
+        /*
         public static string GetMatchesData()
         {
             string path = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApp‌​licationData), "LeagueDataAnalyzer2", "ExampleData.txt");
@@ -22,11 +23,12 @@ namespace LeagueDataAnalyzer2.Model
         {
             Data database = Data.Instance;
 
-            foreach(DataProvider.Entity.MatchJson matchData in DataProvider.RequestsRepository.GetMatchesByPlayerIdFromLocal())
+            foreach(ExternalDataProvider.Entity.MatchJson matchData in ExternalDataProvider.RequestsRepository.GetMatchesByPlayerIdFromLocal())
             {
                 database.Matches.Add(new MatchTransformer(matchData).Match);
             }
         }
+        */
       
     }
 }

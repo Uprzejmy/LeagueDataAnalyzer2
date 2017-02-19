@@ -9,8 +9,15 @@ namespace LeagueDataAnalyzer2.Model.Entity
 {
     class Player : INotifyPropertyChanged
     {
-        int _id;
-        public int Id
+        long _id;
+        string _username;
+        int _profileIconId;
+        int _summonerLevel;
+        HashSet<Match> _matches = new HashSet<Match>();
+
+        public DateTime lastExternalApiCall = DateTime.Today.AddDays(-1); //to make sure the first call will call the external api
+
+        public long Id
         {
             get
             {
@@ -26,7 +33,6 @@ namespace LeagueDataAnalyzer2.Model.Entity
             }
         }
 
-        string _username;
         public string Username
         {
             get
@@ -43,6 +49,39 @@ namespace LeagueDataAnalyzer2.Model.Entity
             }
         }
 
+        public int ProfileIconId
+        {
+            get
+            {
+                return _profileIconId;
+            }
+            set
+            {
+                if (_profileIconId != value)
+                {
+                    _profileIconId = value;
+                    RaisePropertyChanged("ProfileIconId");
+                }
+            }
+        }
+
+        public int SummonerLevel
+        {
+            get
+            {
+                return _summonerLevel;
+            }
+            set
+            {
+                if (_summonerLevel != value)
+                {
+                    _summonerLevel = value;
+                    RaisePropertyChanged("SummonerLevel");
+                }
+            }
+        }
+
+        public HashSet<Match> Matches { get { return _matches; } }
 
         void RaisePropertyChanged(string property)
         {
@@ -53,5 +92,19 @@ namespace LeagueDataAnalyzer2.Model.Entity
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public override bool Equals(Object obj)
+        {
+            Player player = obj as Player;
+            if (player == null)
+                return false;
+
+            return this._id.Equals(player.Id);
+        }
+
+        public override string ToString()
+        {
+            return "id: " + _id.ToString() + " " + "username: " + _username.ToString();
+        }
     }
 }

@@ -13,7 +13,18 @@ namespace LeagueDataAnalyzer2.ViewModel
 {
     class ViewModelMain : ViewModelBase
     {
-        public ObservableCollection<Match> Matches { get; set; }
+        public IEnumerable<Match> Matches
+        {
+            get
+            {
+                if (data == null)
+                    data = new DataAccessProxy();
+
+                return data.GetMatchesByPlayerId(26885974);
+            }
+        }
+
+        DataAccessProxy data;
 
         string _textProperty1;
         public string TextProperty1
@@ -34,18 +45,12 @@ namespace LeagueDataAnalyzer2.ViewModel
 
         public ViewModelMain()
         {
-            //DataProvider.RequestsRepository.GetMatchesByPlayerId();
-            DataHandler.FillMatchData();
+            if (data == null)
+                data = new DataAccessProxy();
 
-            Matches = new ObservableCollection<Match>();
-
-            Data database = Data.Instance;
-            foreach(Match match in database.Matches)
-            {
-                Matches.Add(match);
-            }
-
-            //TextProperty1 = DataHandler.GetMatchesData();
+            Player player = data.GetPlayerByName("uprzejmy");
+            TextProperty1 = player.ToString();
+            
         }
     }
 }

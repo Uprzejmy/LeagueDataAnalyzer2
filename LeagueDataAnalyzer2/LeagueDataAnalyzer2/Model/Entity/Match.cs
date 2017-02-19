@@ -112,8 +112,7 @@ namespace LeagueDataAnalyzer2.Model.Entity
                 }
             }
         }
-
-
+        
         void RaisePropertyChanged(string property)
         {
             if (PropertyChanged != null)
@@ -123,5 +122,19 @@ namespace LeagueDataAnalyzer2.Model.Entity
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public override bool Equals(Object obj)
+        {
+            Match match = obj as Match;
+            if (match == null)
+                return false;
+            
+            return this._matchId.Equals(match.Id);
+        }
+
+        public override string ToString()
+        {
+            return "id: " + _matchId.ToString() + " " + "queue: " + _queue.ToString();
+        }
     }
 }

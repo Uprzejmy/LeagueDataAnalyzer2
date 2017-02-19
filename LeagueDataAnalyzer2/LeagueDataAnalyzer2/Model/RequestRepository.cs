@@ -4,18 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using LeagueDataAnalyzer2.Model.Entity;
+
 namespace LeagueDataAnalyzer2.Model
 {
     class RequestRepository : IRequestsRepository
     {
-        public string GetMatchesByPlayerId(string id)
+        Data database = Data.Instance;
+
+        public IEnumerable<Match> GetMatchesByPlayerId(long id)
         {
-            throw new NotImplementedException();
+            Player player = database.Players.Where(x => x.Id == id).FirstOrDefault();
+
+            return player.Matches;
         }
 
-        public string GetPlayerByName(string name)
+        public Player GetPlayerByName(string name)
         {
-            throw new NotImplementedException();
+            // Console.WriteLine("number of players in internal database: " + database.Players.Count());
+            Player player = database.Players.Where(x => x.Username.ToLower() == name.ToLower()).FirstOrDefault();
+
+            // Console.WriteLine("Found: " + player.Username.ToString());
+
+            return player;
         }
     }
 }

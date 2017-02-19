@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using LeagueDataAnalyzer2.Model.Entity;
+
 namespace LeagueDataAnalyzer2.Model
 {
     interface IRequestsRepository
     {
-        string GetPlayerByName(string name);
-        string GetMatchesByPlayerId(string id);
+        Player GetPlayerByName(string name);
+        IEnumerable<Match> GetMatchesByPlayerId(long id);
     }
 }

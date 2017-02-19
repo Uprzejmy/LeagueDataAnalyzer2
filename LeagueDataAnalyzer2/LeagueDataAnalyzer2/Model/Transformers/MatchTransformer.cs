@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeagueDataAnalyzer2.Model
+namespace LeagueDataAnalyzer2.Model.Transformers
 {
     class MatchTransformer
     {
@@ -18,7 +18,7 @@ namespace LeagueDataAnalyzer2.Model
             }
         }
 
-        public MatchTransformer(DataProvider.Entity.MatchJson MatchData)
+        public MatchTransformer(ExternalDataProvider.Entity.MatchJson MatchData)
         {
             _match = new Match();
             _match.MatchId = MatchData.matchId;

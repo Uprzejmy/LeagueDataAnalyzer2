@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeagueDataAnalyzer2.DataProvider
+namespace LeagueDataAnalyzer2.ExternalDataProvider
 {
     class UrlsRepository
     {
         private static string riotKey = "?api_key=" + ConfigurationManager.AppSettings.Get("riot_key");
 
-        public static string GetPlayerByName(string name)
+        public static string GetSummonerByName(string name)
         {
             return "https://eune.api.pvp.net/api/lol/eune/v1.4/summoner/by-name/" + name + riotKey;
         }

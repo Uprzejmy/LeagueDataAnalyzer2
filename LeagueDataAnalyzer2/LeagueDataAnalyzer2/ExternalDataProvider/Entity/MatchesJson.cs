@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeagueDataAnalyzer2.DataProvider.Entity
+namespace LeagueDataAnalyzer2.ExternalDataProvider.Entity
 {
     class MatchesJson
     {

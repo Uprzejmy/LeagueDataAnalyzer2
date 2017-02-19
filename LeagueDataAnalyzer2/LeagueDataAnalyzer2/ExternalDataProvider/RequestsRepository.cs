@@ -5,15 +5,19 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LeagueDataAnalyzer2.DataProvider.Entity;
 
-namespace LeagueDataAnalyzer2.DataProvider
+using LeagueDataAnalyzer2.ExternalDataProvider.Entity;
+using LeagueDataAnalyzer2.ExternalDataProvider.Deserializer;
+
+namespace LeagueDataAnalyzer2.ExternalDataProvider
 {
     class RequestsRepository
     {
-        public static string GetPlayerByName(string name)
+        public static SummonerJson GetSummonerByName(string name)
         {
-            return ApiConnector.GetDataFromUrl(UrlsRepository.GetPlayerByName(name));
+            string json = ApiConnector.GetDataFromUrl(UrlsRepository.GetSummonerByName(name));
+
+            return SummonerDeserializer.DeserializeSummoner(json);
         }
 
         public static string GetMatchesByPlayerId(string id="26885974")
@@ -36,12 +40,14 @@ namespace LeagueDataAnalyzer2.DataProvider
             return readText;
         }
 
+        
+
         public static IEnumerable<MatchJson> GetMatchesByPlayerIdFromLocal()
         {
             string path = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApp‌​licationData), "LeagueDataAnalyzer2", "ExampleData.txt");
             string json = File.ReadAllText(path);
 
-            return Deserializer.MatchDeserializer.DeserializeMatch(json).Matches;
+            return MatchDeserializer.DeserializeMatch(json).Matches;
         }
     }
 }

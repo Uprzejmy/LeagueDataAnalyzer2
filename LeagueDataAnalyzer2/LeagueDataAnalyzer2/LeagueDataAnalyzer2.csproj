@@ -66,16 +66,20 @@
     </ApplicationDefinition>
     <Compile Include="ExternalDataProvider\ApiConnector.cs" />
     <Compile Include="ExternalDataProvider\Deserializer\MatchDeserializer.cs" />
+    <Compile Include="ExternalDataProvider\Deserializer\SummonerDeserializer.cs" />
     <Compile Include="ExternalDataProvider\Entity\MatchesJson.cs" />
     <Compile Include="ExternalDataProvider\Entity\MatchJson.cs" />
+    <Compile Include="ExternalDataProvider\Entity\SummonerJson.cs" />
     <Compile Include="ExternalDataProvider\RequestsRepository.cs" />
     <Compile Include="ExternalDataProvider\UrlsRepository.cs" />
     <Compile Include="Model\Data.cs" />
+    <Compile Include="Model\DataAccessProxy.cs" />
     <Compile Include="Model\DataHandler.cs" />
     <Compile Include="Model\Entity\Player.cs" />
     <Compile Include="Model\IRequestsRepository.cs" />
-    <Compile Include="Model\MatchTransformer.cs" />
+    <Compile Include="Model\Transformers\MatchTransformer.cs" />
     <Compile Include="Model\RequestRepository.cs" />
+    <Compile Include="Model\Transformers\PlayerTransformer.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelMain.cs" />
     <Compile Include="View\Match.xaml.cs">
