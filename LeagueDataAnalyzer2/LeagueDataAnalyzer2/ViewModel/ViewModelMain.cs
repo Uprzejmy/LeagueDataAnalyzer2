@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 
 using LeagueDataAnalyzer2.Model.Entity;
-using LeagueDataAnalyzer2.DataProvider;
+using LeagueDataAnalyzer2.Model;
 
 namespace LeagueDataAnalyzer2.ViewModel
 {
@@ -34,14 +34,18 @@ namespace LeagueDataAnalyzer2.ViewModel
 
         public ViewModelMain()
         {
-            Matches = new ObservableCollection<Match>
-            {
-                new Match { Id=10, MatchId=12345 },
-                new Match { Id=11, MatchId=12346 },
-                new Match { Id=12, MatchId=12347 },
-            };
+            //DataProvider.RequestsRepository.GetMatchesByPlayerId();
+            DataHandler.FillMatchData();
 
-            TextProperty1 = RequestsRepository.GetMatchesByPlayerIdFromLocal();
+            Matches = new ObservableCollection<Match>();
+
+            Data database = Data.Instance;
+            foreach(Match match in database.Matches)
+            {
+                Matches.Add(match);
+            }
+
+            //TextProperty1 = DataHandler.GetMatchesData();
         }
     }
 }
