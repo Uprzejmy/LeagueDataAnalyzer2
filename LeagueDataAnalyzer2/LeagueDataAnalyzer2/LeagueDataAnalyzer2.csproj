@@ -64,12 +64,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DataProvider\ApiConnector.cs" />
-    <Compile Include="DataProvider\Deserializer\MatchDeserializer.cs" />
-    <Compile Include="DataProvider\Entity\MatchesJson.cs" />
-    <Compile Include="DataProvider\Entity\MatchJson.cs" />
-    <Compile Include="DataProvider\RequestsRepository.cs" />
-    <Compile Include="DataProvider\UrlsRepository.cs" />
+    <Compile Include="ExternalDataProvider\ApiConnector.cs" />
+    <Compile Include="ExternalDataProvider\Deserializer\MatchDeserializer.cs" />
+    <Compile Include="ExternalDataProvider\Entity\MatchesJson.cs" />
+    <Compile Include="ExternalDataProvider\Entity\MatchJson.cs" />
+    <Compile Include="ExternalDataProvider\RequestsRepository.cs" />
+    <Compile Include="ExternalDataProvider\UrlsRepository.cs" />
     <Compile Include="Model\Data.cs" />
     <Compile Include="Model\DataHandler.cs" />
     <Compile Include="Model\Entity\Player.cs" />
