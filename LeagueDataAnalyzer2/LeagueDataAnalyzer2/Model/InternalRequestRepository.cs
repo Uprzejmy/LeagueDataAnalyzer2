@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using LeagueDataAnalyzer2.Model.Entity;
+using LeagueDataAnalyzer2.Model.Exceptions;
 
 namespace LeagueDataAnalyzer2.Model
 {
@@ -23,14 +24,13 @@ namespace LeagueDataAnalyzer2.Model
         {
             // Console.WriteLine("number of players in internal database: " + database.Players.Count());
             Player player = database.Players.Where(x => x.Username.ToLower() == name.ToLower()).FirstOrDefault();
-
-            if (player != null)
+            
+            if(player != null)
             {
                 return player;
             }
 
-            // player not found, should always be fine in this place
-            throw new NotImplementedException();
+            throw new ElementNotFoundException();
         }
     }
 }

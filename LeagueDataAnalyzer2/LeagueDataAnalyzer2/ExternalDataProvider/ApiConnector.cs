@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueDataAnalyzer2.ExternalDataProvider.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,22 +12,22 @@ namespace LeagueDataAnalyzer2.ExternalDataProvider
     {
         public static string GetDataFromUrl(string url)
         {
-            string xml = "";
-            
             try
             {
                 using (var webClient = new WebClient())
                 {
-                    xml = webClient.DownloadString(url);
+                    Console.WriteLine(url);
+                    return webClient.DownloadString(url);
                 }
+            }
+            catch(WebException we)
+            {
+                throw new ResourceNotFoundException("Api Connector: "+url,we);
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
-                throw (e);
+                throw new ExternalApiException("Unknown Exception", e);
             }
-
-            return xml;
         }
     }
 }

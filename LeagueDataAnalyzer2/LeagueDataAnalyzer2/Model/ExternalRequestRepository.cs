@@ -1,4 +1,6 @@
-﻿using LeagueDataAnalyzer2.Model.Entity;
+﻿using LeagueDataAnalyzer2.ExternalDataProvider.Exceptions;
+using LeagueDataAnalyzer2.Model.Entity;
+using LeagueDataAnalyzer2.Model.Exceptions;
 using LeagueDataAnalyzer2.Model.Transformers;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,19 @@ namespace LeagueDataAnalyzer2.Model
         {
             Player player = database.Players.Where(x => x.Id == id).FirstOrDefault();
 
-            // Console.WriteLine("External api: GetMatchesByPlayerIdFromLocal");
+            if(player == null)
+            {
+                try
+                {
+                    player = new PlayerTransformer(ExternalDataProvider.RequestsRepository.GetSummonerById(id.ToString())).Player;
+                }
+                catch (ResourceNotFoundException)
+                {
+                    throw new ElementNotFoundException();
+                }
+            }
+
+            // Console.WriteLine("External api: GetMatchesByPlayerId");
             foreach (ExternalDataProvider.Entity.MatchJson matchData in ExternalDataProvider.RequestsRepository.GetMatchesByPlayerId(id.ToString()))
             {
                 Match match = new MatchTransformer(matchData).Match;
@@ -35,17 +49,21 @@ namespace LeagueDataAnalyzer2.Model
         public Player GetPlayerByName(string name)
         {
             // Console.WriteLine("External api: GetSummonerByName");
+            Player player;
 
-            Player player = new PlayerTransformer(ExternalDataProvider.RequestsRepository.GetSummonerByName(name)).Player;
-
-            if (player != null)
+            try
             {
-                database.Players.Add(player);
-                return player;
+                player = new PlayerTransformer(ExternalDataProvider.RequestsRepository.GetSummonerByName(name)).Player;
+            }
+            catch(ResourceNotFoundException)
+            {
+                throw new ElementNotFoundException();
             }
 
-            // player not found
-            throw new NotImplementedException();
+            database.Players.Add(player);
+
+            return player;
+
         }
     }
 }

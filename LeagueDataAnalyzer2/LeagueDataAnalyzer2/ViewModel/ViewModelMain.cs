@@ -19,7 +19,7 @@ namespace LeagueDataAnalyzer2.ViewModel
             {
                 if (data == null)
                     data = new DataAccessProxy();
-
+                
                 return data.GetMatchesByPlayerId(26885974);
             }
         }
@@ -48,8 +48,15 @@ namespace LeagueDataAnalyzer2.ViewModel
             if (data == null)
                 data = new DataAccessProxy();
 
-            Player player = data.GetPlayerByName("uprzejmy");
-            TextProperty1 = player.ToString();
+            try
+            {
+                Player player = data.GetPlayerByName("uprzejmy432");
+                TextProperty1 = player.ToString();
+            }
+            catch(Exception)
+            {
+                TextProperty1 = "Nieznaleziono gracza";
+            }
             
         }
     }

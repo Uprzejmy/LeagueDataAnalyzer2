@@ -70,11 +70,14 @@
     <Compile Include="ExternalDataProvider\Entity\MatchesJson.cs" />
     <Compile Include="ExternalDataProvider\Entity\MatchJson.cs" />
     <Compile Include="ExternalDataProvider\Entity\SummonerJson.cs" />
+    <Compile Include="ExternalDataProvider\Exceptions\ExternalApiException.cs" />
+    <Compile Include="ExternalDataProvider\Exceptions\ResourceNotFoundException.cs" />
     <Compile Include="ExternalDataProvider\RequestsRepository.cs" />
     <Compile Include="ExternalDataProvider\UrlsRepository.cs" />
     <Compile Include="Model\Data.cs" />
     <Compile Include="Model\DataAccessProxy.cs" />
     <Compile Include="Model\Entity\Player.cs" />
+    <Compile Include="Model\Exceptions\ElementNotFoundException.cs" />
     <Compile Include="Model\ExternalRequestRepository.cs" />
     <Compile Include="Model\IRequestsRepository.cs" />
     <Compile Include="Model\Transformers\MatchTransformer.cs" />

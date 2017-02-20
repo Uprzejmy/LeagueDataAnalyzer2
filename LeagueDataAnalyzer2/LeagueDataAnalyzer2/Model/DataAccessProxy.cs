@@ -22,7 +22,7 @@ namespace LeagueDataAnalyzer2.Model
 
             IRequestsRepository repository; // Strategy pattern
 
-            if (RefreshRequired(player.lastExternalApiCall))
+            if (player == null || RefreshRequired(player.lastExternalApiCall))
             {
                 repository = new ExternalRequestRepository();
             }
