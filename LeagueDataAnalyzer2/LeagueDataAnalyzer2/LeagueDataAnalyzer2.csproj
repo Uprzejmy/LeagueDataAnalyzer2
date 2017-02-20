@@ -74,11 +74,11 @@
     <Compile Include="ExternalDataProvider\UrlsRepository.cs" />
     <Compile Include="Model\Data.cs" />
     <Compile Include="Model\DataAccessProxy.cs" />
-    <Compile Include="Model\DataHandler.cs" />
     <Compile Include="Model\Entity\Player.cs" />
+    <Compile Include="Model\ExternalRequestRepository.cs" />
     <Compile Include="Model\IRequestsRepository.cs" />
     <Compile Include="Model\Transformers\MatchTransformer.cs" />
-    <Compile Include="Model\RequestRepository.cs" />
+    <Compile Include="Model\InternalRequestRepository.cs" />
     <Compile Include="Model\Transformers\PlayerTransformer.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelMain.cs" />

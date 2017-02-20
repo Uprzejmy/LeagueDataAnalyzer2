@@ -8,7 +8,7 @@ using LeagueDataAnalyzer2.Model.Entity;
 
 namespace LeagueDataAnalyzer2.Model
 {
-    class RequestRepository : IRequestsRepository
+    class InternalRequestRepository : IRequestsRepository
     {
         Data database = Data.Instance;
 
@@ -24,9 +24,13 @@ namespace LeagueDataAnalyzer2.Model
             // Console.WriteLine("number of players in internal database: " + database.Players.Count());
             Player player = database.Players.Where(x => x.Username.ToLower() == name.ToLower()).FirstOrDefault();
 
-            // Console.WriteLine("Found: " + player.Username.ToString());
+            if (player != null)
+            {
+                return player;
+            }
 
-            return player;
+            // player not found, should always be fine in this place
+            throw new NotImplementedException();
         }
     }
 }

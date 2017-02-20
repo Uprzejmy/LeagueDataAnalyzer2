@@ -9,7 +9,6 @@ namespace LeagueDataAnalyzer2.Model
 {
     class Data
     {
-        public HashSet<Match> Matches = new HashSet<Match>();
         public HashSet<Player> Players = new HashSet<Player>();
 
         private static Data data = null;
