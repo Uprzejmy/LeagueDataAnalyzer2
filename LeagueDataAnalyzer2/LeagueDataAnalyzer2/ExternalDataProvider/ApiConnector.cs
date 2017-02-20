@@ -22,7 +22,7 @@ namespace LeagueDataAnalyzer2.ExternalDataProvider
             }
             catch(Exception e)
             {
-                //add something to the log
+                Console.WriteLine(e.Message);
                 throw (e);
             }
 

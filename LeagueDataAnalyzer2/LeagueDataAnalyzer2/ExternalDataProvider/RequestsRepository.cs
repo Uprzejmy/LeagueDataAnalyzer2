@@ -20,28 +20,14 @@ namespace LeagueDataAnalyzer2.ExternalDataProvider
             return SummonerDeserializer.DeserializeSummoner(json);
         }
 
-        public static string GetMatchesByPlayerId(string id="26885974")
+        public static IEnumerable<MatchJson> GetMatchesByPlayerId(string id)
         {
-            string result = ApiConnector.GetDataFromUrl(UrlsRepository.GetMatchesByPlayerId(id));
+            string json = ApiConnector.GetDataFromUrl(UrlsRepository.GetMatchesByPlayerId(id));
 
-            string directory = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApp‌​licationData),"LeagueDataAnalyzer2");
-            Directory.CreateDirectory(directory);
-
-            File.WriteAllText(Path.Combine(directory,"ExampleData.txt"), result);
-
-            return result;
+            return MatchDeserializer.DeserializeMatch(json).Matches;
         }
 
-        public static string GetMatchesStringByPlayerIdFromLocal()
-        {
-            string path = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApp‌​licationData), "LeagueDataAnalyzer2", "ExampleData.txt");
-            string readText = File.ReadAllText(path);
-
-            return readText;
-        }
-
-        
-
+        //for testing purposes, to not call api entire time
         public static IEnumerable<MatchJson> GetMatchesByPlayerIdFromLocal()
         {
             string path = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApp‌​licationData), "LeagueDataAnalyzer2", "ExampleData.txt");
