@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LeagueDataAnalyzer2.View"
         xmlns:vm="clr-namespace:LeagueDataAnalyzer2.ViewModel" 
         mc:Ignorable="d"
-        Title="MatchHistory" Height="300" Width="600" 
+        Title="MatchHistory" Height="300" Width="700" 
         WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:ViewModelMatchHistory/>
@@ -20,7 +20,7 @@
         <StackPanel Grid.RowSpan="2">
             <TextBlock FontWeight="Bold" Margin="10,5" Text="Player name: "><Run Text="{Binding PlayerName}"/></TextBlock>
             <TextBlock FontWeight="Bold" Margin="10,5" Text="Player level: "><Run Text="{Binding PlayerLevel}"/></TextBlock>
-            <DataGrid x:Name="MatchesData" ItemsSource="{Binding Matches}" HorizontalAlignment="Right" Height="170" Width="572" Margin="0,0,10,0" RenderTransformOrigin="0.499,0.684" FrozenColumnCount="5"/>
+            <DataGrid x:Name="MatchesData" ItemsSource="{Binding Matches}" HorizontalAlignment="Right" Height="170" Width="672" Margin="0,0,10,0" RenderTransformOrigin="0.499,0.684" FrozenColumnCount="5"/>
         </StackPanel>
         <Button x:Name="button"  Click="BackToSearchClick" HorizontalAlignment="Left" Margin="197,236,0,0" VerticalAlignment="Top" Width="85" Height="23" Command="{Binding SummonerName}" Content="Back to search"/>
     </Grid>

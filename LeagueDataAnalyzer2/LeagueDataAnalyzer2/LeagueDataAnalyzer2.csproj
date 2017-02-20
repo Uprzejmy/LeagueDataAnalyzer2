@@ -82,6 +82,7 @@
     <Compile Include="Model\Exceptions\ElementNotFoundException.cs" />
     <Compile Include="Model\ExternalRequestRepository.cs" />
     <Compile Include="Model\IRequestsRepository.cs" />
+    <Compile Include="Model\Transformers\ChampionIdToName.cs" />
     <Compile Include="Model\Transformers\MatchTransformer.cs" />
     <Compile Include="Model\InternalRequestRepository.cs" />
     <Compile Include="Model\Transformers\PlayerTransformer.cs" />

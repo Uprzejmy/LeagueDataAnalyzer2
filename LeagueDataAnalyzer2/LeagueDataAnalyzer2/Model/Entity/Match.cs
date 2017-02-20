@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueDataAnalyzer2.Model.Transformers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -45,6 +46,11 @@ namespace LeagueDataAnalyzer2.Model.Entity
                     RaisePropertyChanged("Champion");
                 }
             }
+        }
+
+        public string ChampionName
+        {
+            get { return ChampionIdToName.GetName(_champion); }
         }
 
         public string Queue
