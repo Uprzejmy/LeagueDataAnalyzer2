@@ -9,11 +9,11 @@ namespace LeagueDataAnalyzer2.Model.Entity
 {
     class Player : INotifyPropertyChanged
     {
-        long _id;
-        string _username;
-        int _profileIconId;
-        int _summonerLevel;
-        HashSet<Match> _matches = new HashSet<Match>();
+        protected long _id;
+        protected string _username;
+        protected int _profileIconId;
+        protected int _summonerLevel;
+        protected HashSet<Match> _matches = new HashSet<Match>();
 
         public DateTime lastExternalApiCall = DateTime.Today.AddDays(-1); //to make sure the first call will call the external api
 

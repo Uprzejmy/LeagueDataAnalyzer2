@@ -8,6 +8,7 @@ using System.Configuration;
 
 using LeagueDataAnalyzer2.Model.Entity;
 using LeagueDataAnalyzer2.Model;
+using LeagueDataAnalyzer2.View;
 
 namespace LeagueDataAnalyzer2.ViewModel
 {
@@ -49,30 +50,12 @@ namespace LeagueDataAnalyzer2.ViewModel
             }
         }
 
-        string _textProperty1;
-        public string TextProperty1
-        {
-            get
-            {
-                return _textProperty1;
-            }
-            set
-            {
-                if (_textProperty1 != value)
-                {
-                    _textProperty1 = value;
-                    RaisePropertyChanged("TextProperty1");
-                }
-            }
-        }
-
         //to be removed
         public ViewModelMatchHistory()
         {
             if (data == null)
                 data = new DataAccessProxy();
-
-            TextProperty1 = "test";
+            
         }
 
         public ViewModelMatchHistory(string username)
@@ -83,11 +66,10 @@ namespace LeagueDataAnalyzer2.ViewModel
             try
             {
                 _player = data.GetPlayerByName(username);
-                TextProperty1 = _player.ToString();
             }
             catch(Exception)
             {
-                TextProperty1 = "Nieznaleziono gracza";
+                _player = new NullPlayer();
             }
             
         }
