@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LeagueDataAnalyzer2.View"
         xmlns:vm="clr-namespace:LeagueDataAnalyzer2.ViewModel" 
         mc:Ignorable="d"
-        Title="MatchHistory" Height="300" Width="300" 
+        Title="MatchHistory" Height="500" Width="300" 
         WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:ViewModelMatchHistory/>
@@ -18,12 +18,12 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.RowSpan="2">
-            <Label x:Name="PlayerData" Content="Label" RenderTransformOrigin="0.48,-6.24" Margin="10,0"/>
+            <TextBlock FontWeight="Bold" Margin="10,5" Text="Player name: "><Run Text="{Binding PlayerName}"/></TextBlock>
+            <TextBlock FontWeight="Bold" Margin="10,5" Text="Player level: "><Run Text="{Binding PlayerLevel}"/></TextBlock>
             <DataGrid x:Name="MatchesData" ItemsSource="{Binding Matches}" HorizontalAlignment="Right" Height="115" Width="272" Margin="0,0,10,0" RenderTransformOrigin="0.499,0.684"/>
             <TextBlock FontWeight="Bold" Margin="10,5" Text="The TestText property says '"><Run Text="{Binding TextProperty1}"/><Run Text="'"/></TextBlock>
             <Button Content="Change Text" Command="{Binding TextProperty1}" CommandParameter="{Binding TextProperty1, ElementName=MatchesData}" Margin="10,0"/>
         </StackPanel>
-        <Button Content="Next Example" Command="{Binding NextExampleCommand}" Foreground="Red" HorizontalAlignment="Right" FontWeight="Bold" Grid.Row="1" Margin="5"/>
-
+        <Button x:Name="button"  Click="BackToSearchClick" HorizontalAlignment="Left" Margin="197,236,0,0" VerticalAlignment="Top" Width="85" Height="23" Command="{Binding SummonerName}" Content="Back to search"/>
     </Grid>
 </Window>

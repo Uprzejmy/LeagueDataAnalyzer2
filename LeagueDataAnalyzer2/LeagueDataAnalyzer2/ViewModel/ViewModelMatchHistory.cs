@@ -24,6 +24,30 @@ namespace LeagueDataAnalyzer2.ViewModel
         DataAccessProxy data;
 
         Player _player;
+        
+        public string PlayerName
+        {
+            get
+            {
+                return _player.Username.ToString();
+            }
+            set
+            {
+                RaisePropertyChanged("PlayerName");
+            }
+        }
+        
+        public string PlayerLevel
+        {
+            get
+            {
+                return _player.SummonerLevel.ToString();
+            }
+            set
+            {
+                RaisePropertyChanged("PlayerLevel");
+            }
+        }
 
         string _textProperty1;
         public string TextProperty1
