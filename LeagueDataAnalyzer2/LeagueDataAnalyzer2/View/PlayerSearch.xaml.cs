@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace LeagueDataAnalyzer2.View
 {
     /// <summary>
-    /// Interaction logic for Match.xaml
+    /// Interaction logic for PlayerSearch.xaml
     /// </summary>
-    public partial class Match : Window
+    public partial class PlayerSearch : Window
     {
-        public Match()
+        public PlayerSearch()
         {
             InitializeComponent();
         }

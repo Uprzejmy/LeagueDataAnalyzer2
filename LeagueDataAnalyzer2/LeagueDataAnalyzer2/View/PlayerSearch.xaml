@@ -1,0 +1,28 @@
+﻿<Window x:Class="LeagueDataAnalyzer2.View.PlayerSearch"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LeagueDataAnalyzer2.View"
+      xmlns:vm="clr-namespace:LeagueDataAnalyzer2.ViewModel" 
+      mc:Ignorable="d" 
+      Title="Player Search" Height="300" Width="300" >
+    <Window.DataContext>
+        <vm:ViewModelPlayerSearch/>
+    </Window.DataContext>
+
+    <Grid MaxWidth="300" MaxHeight="300">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="textBlock" Margin="40,40,40,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="36"><Run Text="Type the name of the Summoner "/><LineBreak/><Run Text="and check his matches history"/></TextBlock>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="40,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
+        <Button x:Name="button" Grid.Column="1" HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" Width="33" Height="23">
+            <Button.Background>
+                <ImageBrush ImageSource="../SearchImage.png"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>
