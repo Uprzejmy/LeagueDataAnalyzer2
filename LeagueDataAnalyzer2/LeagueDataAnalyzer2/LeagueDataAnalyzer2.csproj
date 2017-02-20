@@ -85,7 +85,7 @@
     <Compile Include="Model\InternalRequestRepository.cs" />
     <Compile Include="Model\Transformers\PlayerTransformer.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="ViewModel\ViewModelMain.cs" />
+    <Compile Include="ViewModel\ViewModelMatchHistory.cs" />
     <Compile Include="ViewModel\ViewModelPlayerSearch.cs" />
     <Compile Include="View\MatchHistory.xaml.cs">
       <DependentUpon>MatchHistory.xaml</DependentUpon>
@@ -141,7 +141,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="SearchImage.png" />
+    <Resource Include="SearchImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

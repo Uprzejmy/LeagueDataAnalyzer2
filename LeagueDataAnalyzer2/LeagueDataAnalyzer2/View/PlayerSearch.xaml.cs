@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueDataAnalyzer2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,13 @@ namespace LeagueDataAnalyzer2.View
         {
             InitializeComponent();
         }
+
+        private void SearchClick(object sender, RoutedEventArgs e)
+        {
+            var window = new MatchHistory { DataContext = new ViewModelMatchHistory(SummonerName.Text) };
+            window.Show();
+            this.Close();
+        }
+
     }
 }

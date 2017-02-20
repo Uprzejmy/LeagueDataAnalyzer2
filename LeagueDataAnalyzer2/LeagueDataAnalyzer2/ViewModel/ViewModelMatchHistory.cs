@@ -11,20 +11,19 @@ using LeagueDataAnalyzer2.Model;
 
 namespace LeagueDataAnalyzer2.ViewModel
 {
-    class ViewModelMain : ViewModelBase
+    class ViewModelMatchHistory : ViewModelBase
     {
         public IEnumerable<Match> Matches
         {
             get
             {
-                if (data == null)
-                    data = new DataAccessProxy();
-                
-                return data.GetMatchesByPlayerId(26885974);
+                return data.GetMatchesByPlayerId(_player.Id);
             }
         }
 
         DataAccessProxy data;
+
+        Player _player;
 
         string _textProperty1;
         public string TextProperty1
@@ -43,15 +42,24 @@ namespace LeagueDataAnalyzer2.ViewModel
             }
         }
 
-        public ViewModelMain()
+        //to be removed
+        public ViewModelMatchHistory()
+        {
+            if (data == null)
+                data = new DataAccessProxy();
+
+            TextProperty1 = "test";
+        }
+
+        public ViewModelMatchHistory(string username)
         {
             if (data == null)
                 data = new DataAccessProxy();
 
             try
             {
-                Player player = data.GetPlayerByName("uprzejmy432");
-                TextProperty1 = player.ToString();
+                _player = data.GetPlayerByName(username);
+                TextProperty1 = _player.ToString();
             }
             catch(Exception)
             {

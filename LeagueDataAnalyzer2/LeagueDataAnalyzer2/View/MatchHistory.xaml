@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:LeagueDataAnalyzer2.View"
         xmlns:vm="clr-namespace:LeagueDataAnalyzer2.ViewModel" 
         mc:Ignorable="d"
-        Title="Match" Height="300" Width="300" 
+        Title="MatchHistory" Height="300" Width="300" 
         WindowStartupLocation="CenterScreen">
     <Window.DataContext>
-        <vm:ViewModelMain/>
+        <vm:ViewModelMatchHistory/>
     </Window.DataContext>
 
     <Grid>
