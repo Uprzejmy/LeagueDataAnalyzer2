@@ -115,6 +115,7 @@
     </EmbeddedResource>
     <None Include="HiddenSettings.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="HiddenSettings.template.config" />
     <None Include="packages.config" />

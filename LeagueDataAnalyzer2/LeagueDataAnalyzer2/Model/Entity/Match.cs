@@ -9,29 +9,11 @@ namespace LeagueDataAnalyzer2.Model.Entity
 {
     class Match : INotifyPropertyChanged
     {
-        int _id;
         long _matchId;
         long _champion;
         string _queue;
         string _season;
         DateTime _date;
-
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    _id = value;
-                    RaisePropertyChanged("Id");
-                }
-            }
-        }
-
         
         public long MatchId
         {
@@ -129,7 +111,12 @@ namespace LeagueDataAnalyzer2.Model.Entity
             if (match == null)
                 return false;
             
-            return this._matchId.Equals(match.Id);
+            return this._matchId.Equals(match.MatchId);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
         public override string ToString()

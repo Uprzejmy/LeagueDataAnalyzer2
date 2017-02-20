@@ -102,6 +102,11 @@ namespace LeagueDataAnalyzer2.Model.Entity
             return this._id.Equals(player.Id);
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public override string ToString()
         {
             return "id: " + _id.ToString() + " " + "username: " + _username.ToString();
