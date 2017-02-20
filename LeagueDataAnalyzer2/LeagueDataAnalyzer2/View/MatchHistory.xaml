@@ -22,6 +22,6 @@
             <TextBlock FontWeight="Bold" Margin="10,5" Text="Player level: "><Run Text="{Binding PlayerLevel}"/></TextBlock>
             <DataGrid x:Name="MatchesData" ItemsSource="{Binding Matches}" HorizontalAlignment="Right" Height="170" Width="672" Margin="0,0,10,0" RenderTransformOrigin="0.499,0.684" FrozenColumnCount="5"/>
         </StackPanel>
-        <Button x:Name="button"  Click="BackToSearchClick" HorizontalAlignment="Left" Margin="197,236,0,0" VerticalAlignment="Top" Width="85" Height="23" Command="{Binding SummonerName}" Content="Back to search"/>
+        <Button x:Name="button"  Click="BackToSearchClick" HorizontalAlignment="Left" Margin="597,236,0,0" VerticalAlignment="Top" Width="85" Height="23" Command="{Binding SummonerName}" Content="Back to search"/>
     </Grid>
 </Window>
